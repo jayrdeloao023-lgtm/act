@@ -1,0 +1,81 @@
+
+
+PART 4 — Abstraction
+ACTIVITY 1: Shape Area
+
+abstract class Shape {
+    abstract double area();
+}
+
+class Circle extends Shape {
+    double radius;
+    Circle(double radius) {
+        this.radius = radius;
+    }
+    double area() {
+        return 3.14 * radius * radius;
+    }
+}
+
+class Rectangle extends Shape {
+    double width, height;
+    Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+    double area() {
+        return width * height;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle(5);
+        Rectangle rectangle = new Rectangle(4, 6);
+
+        System.out.println("Circle Area: " + circle.area());
+        System.out.println("Rectangle Area: " + rectangle.area());
+    }
+}
+ 
+
+ACTIVITY 2: Employee Payment 
+
+abstract class Employee {
+    abstract double calculatePay();
+}
+
+class HourlyEmployee extends Employee {
+    double hours, rate;
+
+    HourlyEmployee(double hours, double rate) {
+        this.hours = hours;
+        this.rate = rate;
+    }
+
+    double calculatePay() {
+        return hours * rate;
+    }
+}
+
+class SalariedEmployee extends Employee {
+    double salary;
+
+    SalariedEmployee(double salary) {
+        this.salary = salary;
+    }
+
+    double calculatePay() {
+        return salary;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        HourlyEmployee hourly = new HourlyEmployee(40, 100);
+        SalariedEmployee salaried = new SalariedEmployee(5000);
+
+        System.out.println("Hourly Employee Pay: " + hourly.calculatePay());
+        System.out.println("Salaried Employee Pay: " + salaried.calculatePay());
+    }
+}
