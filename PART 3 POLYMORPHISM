@@ -1,0 +1,66 @@
+
+
+                 PART 3: Polymorphism
+ACTIVITY 1: Printers 
+
+class Printer {
+    void printDocument() {
+        System.out.println("Printing a document...");
+    }
+}
+
+class InkPrinter extends Printer {
+    void printDocument() {
+        System.out.println("Printing using ink printer...");
+    }
+}
+
+class LaserPrinter extends Printer {
+    void printDocument() {
+        System.out.println("Printing using laser printer...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Printer[] printers = { new InkPrinter(), new LaserPrinter() };
+
+        for (Printer p : printers) {
+            p.printDocument();
+        }
+    }
+}
+ 
+
+activity 2 duck typing 
+
+interface Speaker {
+    void speak();
+}
+
+class Bird implements Speaker {
+    public void speak() {
+        System.out.println("Chirp chirp!");
+    }
+}
+
+class Robot implements Speaker {
+    public void speak() {
+        System.out.println("Beep boop!");
+    }
+}
+
+public class Main {
+    static void makeItSpeak(Speaker obj) {
+        obj.speak();
+    }
+
+    public static void main(String[] args) {
+        Bird bird = new Bird();
+        Robot robot = new Robot();
+
+        makeItSpeak(bird);
+        makeItSpeak(robot);
+    }
+}
+
